@@ -1,0 +1,17 @@
+.primary-search-field {
+    width: 100%;
+
+    padding: 1.25rem 1.5rem;
+    display: block;
+    border: none;
+    border-radius: 1rem;
+    
+    font-family: Inter;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    
+    color: var(--2D2D2D, #2D2D2D);
+    background: var(--F4F4F4, #F4F4F4) url('../../assets/icon-search.svg') no-repeat right 1.5rem center;
+}

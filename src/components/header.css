@@ -1,0 +1,58 @@
+.site-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+
+    .header-logo {
+        margin-right: auto;
+    }
+
+    .font-face-select {
+        margin-right: 1rem;
+        width: 10rem;
+        height: 2rem;
+        font-size: 1.125rem;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 1.5rem;
+        border: none;
+        text-align: left;
+
+    }
+    
+    .font-face-select:focus-visible {
+        outline: solid green 2px !important;
+    }
+    
+    .select-control {
+        border: none;
+        cursor: pointer;
+    }
+
+    .select-control:focus-visible {
+        outline: dashed purple 5px !important;
+    }
+
+    .select-indicator-separator {
+        display: none;
+    }
+
+    .select-option {
+        background-color: #ffffff;
+        cursor: pointer;
+
+        &:hover {
+            color: var(--A445ED, #A445ED);
+        }
+    }
+
+    .select-menu {
+        margin: 1.5rem 0 0 -2.5rem;
+        border-radius: 1rem;
+        overflow: hidden;
+        background: var(--FFFFFF, #FFF);
+        box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.10);
+        width: 11.5rem;
+    }
+}
