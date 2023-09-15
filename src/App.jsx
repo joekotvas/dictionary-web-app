@@ -10,7 +10,7 @@ import './App.css'
 
 function App() {
 
-  const [term, setTerm] = useState('eat')
+  const [term, setTerm] = useState('keyboard')
   const [entry, setEntry] = useState({})
   const [dataStatus, setDataStatus] = useState('loading')
   const [userSettings, setUserSettings] = useState({
