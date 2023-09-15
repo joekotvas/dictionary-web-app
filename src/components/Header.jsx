@@ -2,7 +2,7 @@
 import FontFaceSelect from './FontFaceSelect'
 import ColorThemeToggle from './ColorThemeToggle'
 
-import './Header.css'
+import './header.css'
 
 import Logo from '../assets/logo.svg'
 
