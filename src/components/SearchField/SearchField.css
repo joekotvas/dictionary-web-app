@@ -1,17 +1,29 @@
 .primary-search-field {
-    width: 100%;
+  width: 100%;
+  margin-bottom: 3rem;
 
-    padding: 1.25rem 1.5rem;
-    display: block;
-    border: none;
-    border-radius: 1rem;
-    
-    font-family: Inter;
-    font-size: 1.25rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    
-    color: var(--2D2D2D, #2D2D2D);
-    background: var(--F4F4F4, #F4F4F4) url('../../assets/icon-search.svg') no-repeat right 1.5rem center;
+  padding: 1.25rem 1.5rem;
+  display: block;
+  border: none;
+  border-radius: 1rem;
+
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+
+  color: var(--FFFFFF, #ffffff);
+  caret-color: var(--A445ED, #a445ed);
+  background: var(--1F1F1F, #1f1f1f) url('../../assets/icon-search.svg')
+    no-repeat right 1.5rem center;
+
+  &:focus-visible {
+    outline: 1px solid var(--A445ED, #a445ed);
+  }
+
+  [data-theme='light'] & {
+    color: var(--2D2D2D, #2d2d2d);
+    background-color: var(--F4F4F4, #f4f4f4);
+  }
 }

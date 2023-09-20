@@ -1,3 +1,59 @@
+.pos-title {
+  color: white;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 700;
+  outline: red;
+}
+
 .entry-container {
-    text-align: left;
+  font-size: 1.125rem;
+  text-align: left;
+
+  .pos-title {
+    color: white;
+    font-size: 1.5rem;
+    font-style: italic;
+    font-weight: 700;
+
+    &::after {
+      content: '';
+      display: block;
+      width: auto;
+      height: 1px;
+      background: var(--3A3A3A, #3a3a3a);
+      margin: -1rem 0 2rem 5rem;
+    }
+  }
+
+  & h3 {
+    font-size: 1.125rem;
+    font-weight: 400;
+    color: var(--757575, #757575);
+  }
+
+  .meaning-container {
+    padding-left: 2rem;
+
+    & li {
+      padding-left: 1rem;
+      margin: 0;
+
+      &::marker {
+        color: var(--8F19E8, #8f19e8);
+      }
+
+      .example {
+        color: var(--757575, #757575);
+
+        &::before {
+          content: '“';
+        }
+
+        &::after {
+          content: '”';
+        }
+      }
+    }
+  }
 }

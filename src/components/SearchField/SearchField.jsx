@@ -5,7 +5,7 @@ function SearchField({
     setWord
 }) {
     return (
-        <form>
+        <form onSubmit={(e) => e.preventDefault()}>
             <input
                 type="text"
                 id="primary-search-field"

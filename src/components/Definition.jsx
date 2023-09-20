@@ -1,18 +1,13 @@
 /* eslint-disable react/prop-types */
 export default function Definition({
-    definition: {
-        definition,
-        example,
-        synonyms,
-        antonyms
-    }
+  definition: { definition, example, synonyms, antonyms },
 }) {
-    return (
-        <>
-            <p>{definition}</p>
-            <p>{example}</p>
-            <p>{synonyms}</p>
-            <p>{antonyms}</p>
-        </>
-    )
+  return (
+    <li>
+      <p className="definition">{definition}</p>
+      {example && <p className="example">{example}</p>}
+      {synonyms && <p>{synonyms}</p>}
+      {antonyms && <p>{antonyms}</p>}
+    </li>
+  )
 }

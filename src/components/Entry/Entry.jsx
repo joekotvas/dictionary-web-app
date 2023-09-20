@@ -7,28 +7,26 @@ import Source from '../Source'
 
 import './Entry.css'
 
-function Entry({ 
-    entry
-}) {
-    let Definitions = <></>
+function Entry({ entry }) {
+  let Definitions = <></>
 
-    if (entry.meanings) {
-        Definitions = entry.meanings.map(sense => <Pos key={uuidv4()} sense={sense} />)
-    }
+  if (entry.meanings) {
+    Definitions = entry.meanings.map((sense) => (
+      <Pos key={uuidv4()} sense={sense} />
+    ))
+  }
 
-    console.log(entry)
+  return (
+    entry && (
+      <article className="entry-container">
+        <EntryHeader entry={entry} />
 
-    return entry && (
-        <>
-            <section className="entry-container">
-                <EntryHeader entry={entry} />
+        {Definitions}
 
-                {Definitions}
-
-                <Source sources={entry.sourceUrls} />
-            </section>
-        </>
+        <Source sources={entry.sourceUrls} />
+      </article>
     )
+  )
 }
 
 export default Entry

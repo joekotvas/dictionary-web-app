@@ -1,58 +1,94 @@
 .site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+
+  .header-logo {
+    margin-right: auto;
+  }
+
+  .font-face-select {
+    margin-right: 1rem;
+    font-size: 1.125rem;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 1.5rem;
+    border: none;
+    text-align: left;
+  }
+
+  .select-control {
+    border: none;
+    cursor: pointer;
+    text-align: right;
+
+    color: white;
+    background-color: transparent;
+
+    [data-theme='light'] & {
+      color: var(--2D2D2D, #2d2d2d);
+    }
+  }
+
+  .select-indicator-separator {
+    display: none;
+  }
+
+  .select-menu {
+    width: 11.5rem;
+    margin: 1.5rem 0 0 -2.5rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    border: 0;
+    background-color: var(--1F1F1F, #1f1f1f);
+    box-shadow: 0px 5px 30px 0px #a445ed;
+
+    [data-theme='light'] & {
+      background-color: var(--FFFFFF, #fff);
+      box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.1);
+    }
+  }
+
+  .select-option {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+
+    [data-theme='light'] & {
+      color: var(--2D2D2D, #2d2d2d);
+    }
+
+    &:hover,
+    &:focus,
+    &:focus-visible {
+      color: var(--A445ED, #a445ed);
+    }
+
+    &:active {
+      background-color: #2d2d2d;
+
+      [data-theme='light'] & {
+        background-color: #efefef;
+      }
+    }
+  }
+
+  .color-theme-toggle-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
 
-    .header-logo {
-        margin-right: auto;
+    .color-theme-toggle-switch-container {
+      display: contents;
     }
 
-    .font-face-select {
-        margin-right: 1rem;
-        width: 10rem;
-        height: 2rem;
-        font-size: 1.125rem;
-        font-style: normal;
-        font-weight: 700;
-        line-height: 1.5rem;
-        border: none;
-        text-align: left;
-
-    }
-    
-    .font-face-select:focus-visible {
-        outline: solid green 2px !important;
-    }
-    
-    .select-control {
-        border: none;
-        cursor: pointer;
+    .moon-icon {
+      margin-left: 1rem;
+      stroke: var(--A445ED, #a445ed);
     }
 
-    .select-control:focus-visible {
-        outline: dashed purple 5px !important;
+    [data-theme='light'] & .moon-icon {
+      stroke: var(--757575, #757575);
     }
-
-    .select-indicator-separator {
-        display: none;
-    }
-
-    .select-option {
-        background-color: #ffffff;
-        cursor: pointer;
-
-        &:hover {
-            color: var(--A445ED, #A445ED);
-        }
-    }
-
-    .select-menu {
-        margin: 1.5rem 0 0 -2.5rem;
-        border-radius: 1rem;
-        overflow: hidden;
-        background: var(--FFFFFF, #FFF);
-        box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.10);
-        width: 11.5rem;
-    }
+  }
 }

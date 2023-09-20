@@ -1,7 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Inter:wght@400;700&family=Lora:wght@400;700&display=swap');
+
 #root {
   width: 46rem;
   max-width: 100%;
   margin: 0 auto;
   padding: 2.5rem;
   text-align: center;
+}
+
+[data-font-face='monospace'] {
+  font-family: 'Inconsolata', monospace;
+}
+
+[data-font-face='serif'] {
+  font-family: 'Lora', serif;
+}
+
+[data-font-face='sans-serif'] {
+  font-family: 'Inter', sans-serif;
+}
+
+.loading-pane,
+.not-found-pane {
+  color: var(--757575, #757575);
 }
