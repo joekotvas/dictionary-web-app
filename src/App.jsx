@@ -14,8 +14,32 @@ function App() {
     ? 'dark'
     : 'light'
 
+  // URL query params
+  let urlParams = new URLSearchParams(window.location.search)
+
+  // Get path without query params
+  const getPath = () => window.location.href.split('?')[0]
+  const setPath = (q = '') => {
+    urlParams.set('q', q)
+    if (q === '') {
+      history.pushState({}, '', getPath())
+      document.title = 'Web Dictionary'
+    } else {
+      history.pushState({}, '', getPath() + '?' + urlParams.toString())
+      document.title = `${q} - Web Dictionary`
+    }
+  }
+
+  useEffect(() => {
+    window.onpopstate = () => {
+      console.log('popstate', urlParams.get('q'))
+      const newTerm = new URLSearchParams(window.location.search).get('q')
+      setTerm(newTerm || '')
+    }
+  }, [urlParams])
+
   // State
-  const [term, setTerm] = useState('keyboard')
+  const [term, setTerm] = useState(urlParams.get('q') || '')
   const [entry, setEntry] = useState({})
   const [dataStatus, setDataStatus] = useState('loading')
   const [userSettings, setUserSettings] = useState({
@@ -32,6 +56,7 @@ function App() {
   // Fetch entry when term changes
   useEffect(() => {
     if (!term) {
+      setPath('')
       setDataStatus('no-term')
       return
     }
@@ -39,11 +64,10 @@ function App() {
     clearInterval(retryIntervalId.current)
 
     fetchTimeoutId.current = setTimeout(() => {
+      setPath(term)
       fetchEntry(term, setEntry, setDataStatus)
     }, 500)
-    return () => {
-      clearTimeout(fetchTimeoutId.current)
-    }
+    return () => clearTimeout(fetchTimeoutId.current)
   }, [term])
 
   // Set theme and font face on body element

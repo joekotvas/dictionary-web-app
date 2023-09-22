@@ -23,14 +23,14 @@ export default function Pos({ sense }) {
           </>
         )}
 
-        {sense.synonyms && (
+        {sense.synonyms[0] && (
           <div className="synonyms-container">
             <h3 className="synonyms-title">Synonyms</h3>
 
             <ul className="synonyms-list">
               {sense.synonyms?.map((synonym) => (
                 <li key={uuidv4()} className="synonym">
-                  {synonym}
+                  <a href={`/?q=${encodeURIComponent(synonym)}`}>{synonym}</a>
                 </li>
               ))}
             </ul>
