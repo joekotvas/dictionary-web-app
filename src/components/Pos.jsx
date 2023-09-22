@@ -8,7 +8,9 @@ export default function Pos({ sense }) {
   return (
     sense && (
       <div className="pos-container">
-        <h2 className="pos-title">{sense.partOfSpeech}</h2>
+        <div className="pos-title-wrapper">
+          <h2 className="pos-title">{sense.partOfSpeech}</h2>
+        </div>
 
         {sense.definitions && (
           <>

@@ -1,19 +1,36 @@
 .entry-header {
+  padding-bottom: 2rem;
   position: relative;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: 1fr auto;
+  grid-template-areas:
+    'title play-button'
+    'pronunciation play-button';
+  grid-gap: 0.5rem;
+}
+.entry-header .entry-title {
+  margin: 0;
+  min-width: 0;
 
-  & .entry-title {
-    margin: 0;
+  color: var(--FFFFFF, #ffffff);
+  font-feature-settings: 'clig' off, 'liga' off;
+  font-size: 4rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
 
-    color: var(--FFFFFF, #ffffff);
-    font-feature-settings: 'clig' off, 'liga' off;
-    font-size: 4rem;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-  }
+  grid-area: title;
+  word-wrap: break-word;
+}
 
+.entry-header.long-word .entry-title {
+  font-size: 2.1rem;
+}
+
+.entry-header {
   & .entry-pronunciation {
-    margin-top: 0;
+    margin: 0;
 
     color: var(--A445ED, #a445ed);
     font-feature-settings: 'clig' off, 'liga' off;
@@ -23,16 +40,12 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    grid-area: pronunciation;
   }
 
   & .pronunciation-play-button {
-    margin-left: 1rem;
-    margin-bottom: 0.5rem;
+    margin: 0;
     padding: 0;
-
-    position: absolute;
-    top: 1rem;
-    right: 0;
 
     color: var(--A445ED, #a445ed);
     background: transparent;
@@ -40,6 +53,9 @@
     border-radius: 50%;
     line-height: 0;
     cursor: pointer;
+    grid-area: play-button;
+    align-self: center;
+    justify-self: end;
 
     .play-button-circle {
       fill: var(--A445ED, #a445ed);
@@ -67,6 +83,11 @@
   }
 }
 
+.long-word .pronunciation-play-button svg {
+  width: 3rem;
+  height: 3rem;
+}
+
 [data-theme='light'] {
   .entry-header {
     & .entry-title {
@@ -76,5 +97,73 @@
   body {
     background: black;
     color: #ddd;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 767px) {
+  .entry-header {
+    & .entry-title {
+      font-size: 2rem;
+    }
+
+    &.long-word .entry-title {
+      font-size: 1.3rem;
+    }
+
+    &.long-word .entry-pronunciation {
+      font-size: 1rem;
+    }
+
+    .pronunciation-play-button {
+      justify-self: end;
+    }
+
+    .pronunciation-play-button svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .entry-header {
+    & .entry-title {
+      font-size: 2rem;
+    }
+
+    &.long-word .entry-title {
+      font-size: 1.3rem;
+    }
+
+    &.long-word .entry-pronunciation {
+      font-size: 1rem;
+    }
+
+    .pronunciation-play-button {
+      justify-self: end;
+    }
+
+    .pronunciation-play-button svg {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+}
+
+@media (max-width: 400px) {
+  .entry-header {
+    & .entry-title {
+      font-size: 2rem;
+    }
+
+    &.long-word .entry-title {
+      font-size: 1.1rem;
+    }
+
+    &.long-word .entry-pronunciation {
+      font-size: 0.9rem;
+    }
   }
 }

@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
+import { useEffect } from 'react'
 
 import './EntryHeader.css'
 
 function EntryHeader({ entry }) {
   const word = entry.word
+
+  const longWord = word.length > 20
 
   let phoneticEntry =
     entry.phonetics.find(
@@ -18,7 +21,7 @@ function EntryHeader({ entry }) {
   const audio = phoneticEntry?.audio
 
   return (
-    <section className="entry-header">
+    <section className={`entry-header${longWord ? ' long-word' : ''}`}>
       <h1 className="entry-title">{word}</h1>
       <p className="entry-pronunciation">{phonetic}</p>
 
