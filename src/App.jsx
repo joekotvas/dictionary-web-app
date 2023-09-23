@@ -32,9 +32,11 @@ function App() {
 
   useEffect(() => {
     window.onpopstate = () => {
-      console.log('popstate', urlParams.get('q'))
       const newTerm = new URLSearchParams(window.location.search).get('q')
       setTerm(newTerm || '')
+    }
+    return () => {
+      window.onpopstate = null
     }
   }, [urlParams])
 
@@ -97,7 +99,11 @@ function App() {
       <main>
         <SearchField word={term} setWord={setTerm} />
         {dataStatus === 'no-term' && (
-          <p className="no-term-pane">Enter a word to search</p>
+          <p className="no-term-pane">
+            Welcome to our online dictionary, powered by the Web Dictionary API.
+            <br />
+            Please enter a word in the field above to begin.
+          </p>
         )}
         {dataStatus === 'loading' && <p className="loading-pane">Loading...</p>}
         {dataStatus === 'word-not-found' && (

@@ -12,7 +12,9 @@ export default function Header({
 }) {
   return (
     <header className="site-header">
-      <img className="header-logo" src={Logo} alt="logo" />
+      <a className="header-logo-link" href="/">
+        <img className="header-logo" src={Logo} alt="logo" />
+      </a>
       <FontFaceSelect
         fontFace={fontFace}
         setFontFace={(fontFace) =>
